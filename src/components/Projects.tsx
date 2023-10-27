@@ -29,7 +29,10 @@ function Projects({ projects }: Props) {
           .reverse()
           .map((project) => {
             return (
-              <div className=' w-screen flex-shrink-0 snap-center flex flex-col space-y-5 justify-center items-center p-10 md:p-44 '>
+              <div
+                key={project._id}
+                className=' w-screen flex-shrink-0 snap-center flex flex-col space-y-5 justify-center items-center p-10 md:p-44 '
+              >
                 <Image
                   src={urlFor(project?.image).url()}
                   alt='Social Media Clone App'
