@@ -1,10 +1,13 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { Social } from "../../typings";
 
-type Props = {};
+type Props = { socials: Social[] };
 
-export default function Header({}: Props) {
+export default function Header({ socials }: Props) {
+  const router = useRouter();
   return (
     <header className=' sticky top-0 flex items-start p-5 justify-between max-w-7xl mx-auto z-50 xl:items-center'>
       <motion.div
@@ -18,22 +21,17 @@ export default function Header({}: Props) {
         className=' flex  items-center'
       >
         {/*Social Icons */}
-        <SocialIcon
-          url='https://se.linkedin.com/in/fernando-aleite-1b429b172'
-          fgColor='#d4d4d4'
-          bgColor='transparent'
-        />
-        <SocialIcon
-          url='https://se.linkedin.com/in/fernando-aleite-1b429b172'
-          bgColor='transparent'
-          fgColor='#d4d4d4'
-        />
-        <SocialIcon
-          url='https://se.linkedin.com/in/fernando-aleite-1b429b172'
-          bgColor='transparent'
-          fgColor='#d4d4d4'
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            fgColor='#d4d4d4'
+            bgColor='transparent'
+            target='_blank'
+          />
+        ))}
       </motion.div>
+
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}
         animate={{
@@ -43,6 +41,9 @@ export default function Header({}: Props) {
         }}
         transition={{ duration: 1.2 }}
         className=' flex  items-center text-gray-300 cursor-pointer'
+        onClick={() => {
+          router.push("#contact");
+        }}
       >
         <SocialIcon
           className=' cursor-pointer'
@@ -50,23 +51,9 @@ export default function Header({}: Props) {
           bgColor='transparent'
           fgColor='#d4d4d4'
         />
+
         <p className=' uppercase hidden md:inline-flex'>Contact me</p>
       </motion.div>
     </header>
   );
 }
-
-/**
- * Colors
- Indigo
-#420264
-
-Violet
-#5C038C
-
-Dark Blue
-#1B1734
-
-Purple
-#896FBC
- */
