@@ -24,27 +24,27 @@ type Props = {
 
 export default function Home({ pageInfo, socials, projects, skills }: Props) {
   return (
-    <div className=" scroll-smooth bg-[#38114dea] text-[#d4d4d4] h-screen snap-y snap-mandatory overflow-scroll overflow-x-hidden z-0 scrollbar  scrollbar-thumb-orange-400 scrollbar-track-gray-400/20">
+    <div className=" scroll-smooth bg-[#38114dea] text-[#d4d4d4] h-screen  overflow-scroll overflow-x-hidden z-0 scrollbar  scrollbar-thumb-orange-400 scrollbar-track-gray-400/20">
       <Head>
         <title>Fernando Portfolio</title>
       </Head>
       <Header socials={socials} />
 
-      <section id="hero" className=" snap-start">
+      <section id="hero">
         <Hero pageInfo={pageInfo} />
       </section>
-      <section id="about" className=" snap-center">
+      <section id="about">
         <About pageInfo={pageInfo} />
       </section>
 
-      <section id="projects" className="snap-start">
+      <section id="projects">
         <Projects projects={projects} />
       </section>
       {/*Skills*/}
-      <section id="skills" className="snap-start">
+      <section id="skills">
         <Skills skills={skills} />
       </section>
-      <section id="contact" className="snap-start">
+      <section id="contact">
         <Contact />
       </section>
     </div>
