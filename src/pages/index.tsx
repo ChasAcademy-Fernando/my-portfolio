@@ -24,7 +24,7 @@ type Props = {
 
 export default function Home({ pageInfo, socials, projects, skills }: Props) {
   return (
-    <div className=" bg-[#38114dea] text-[#d4d4d4] h-screen snap-y snap-mandatory overflow-scroll overflow-x-hidden z-0 scrollbar  scrollbar-thumb-orange-400 scrollbar-track-gray-400/20">
+    <div className=" scroll-smooth bg-[#38114dea] text-[#d4d4d4] h-screen snap-y snap-mandatory overflow-scroll overflow-x-hidden z-0 scrollbar  scrollbar-thumb-orange-400 scrollbar-track-gray-400/20">
       <Head>
         <title>Fernando Portfolio</title>
       </Head>
