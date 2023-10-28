@@ -8,10 +8,10 @@ import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import type { GetStaticProps } from "next";
 import { PageInfo, Project, Social, Technology } from "../../typings";
-import { fetchPageInfo } from "../../utils/fetchPageInfo";
-import { fetchSkills } from "../../utils/fetchSkills";
-import { fetchSocials } from "../../utils/fetchSocials";
-import { fetchProjects } from "../../utils/fetchProjects";
+import getPageInfo from "../../utils/getPageInfo";
+import getSkills from "../../utils/getSkills";
+import getSocials from "../../utils/getSocials";
+import getProjects from "../../utils/getProjects";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,27 +24,27 @@ type Props = {
 
 export default function Home({ pageInfo, socials, projects, skills }: Props) {
   return (
-    <div className=' bg-[#38114dea] text-[#d4d4d4] h-screen snap-y snap-mandatory overflow-scroll overflow-x-hidden z-0 scrollbar  scrollbar-thumb-orange-400 scrollbar-track-gray-400/20'>
+    <div className=" bg-[#38114dea] text-[#d4d4d4] h-screen snap-y snap-mandatory overflow-scroll overflow-x-hidden z-0 scrollbar  scrollbar-thumb-orange-400 scrollbar-track-gray-400/20">
       <Head>
         <title>Fernando Portfolio</title>
       </Head>
       <Header socials={socials} />
 
-      <section id='hero' className=' snap-start'>
+      <section id="hero" className=" snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
-      <section id='about' className=' snap-center'>
+      <section id="about" className=" snap-center">
         <About pageInfo={pageInfo} />
       </section>
 
-      <section id='projects' className='snap-start'>
+      <section id="projects" className="snap-start">
         <Projects projects={projects} />
       </section>
       {/*Skills*/}
-      <section id='skills' className='snap-start'>
+      <section id="skills" className="snap-start">
         <Skills skills={skills} />
       </section>
-      <section id='contact' className='snap-start'>
+      <section id="contact" className="snap-start">
         <Contact />
       </section>
     </div>
@@ -52,10 +52,10 @@ export default function Home({ pageInfo, socials, projects, skills }: Props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageInfo = await fetchPageInfo();
-  const skills: Technology[] = await fetchSkills();
-  const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
+  const pageInfo: PageInfo = await getPageInfo();
+  const skills: Technology[] = await getSkills();
+  const socials: Social[] = await getSocials();
+  const projects: Project[] = await getProjects();
 
   return {
     props: {

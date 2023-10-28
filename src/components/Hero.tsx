@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PageInfo } from "../../typings";
-import { urlFor } from "../../sanity.config";
+import { urlFor } from "@/lib/sanity";
 
 type Props = {
   pageInfo: PageInfo;
@@ -24,39 +24,39 @@ function Hero({ pageInfo }: Props) {
   });
 
   return (
-    <div className=' h-[calc(100vh)] flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
+    <div className=" h-[calc(100vh)]  flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
 
       <Image
-        className=' relative rounded-full mx-auto object-cover w-40 h-40 '
+        className=" relative rounded-full mx-auto object-cover w-40 h-40 "
         src={urlFor(pageInfo?.heroImage).url()}
-        alt='picture of fernando aleite'
+        alt="picture of fernando aleite"
         width={200}
         height={200}
       />
-      <div className='z-20'>
+      <div className="z-20">
         <div>
-          <h2 className=' text-sm uppercase text-[#a5a5a5] pt-4 pb-2 tracking-[15px]'>
+          <h2 className=" text-sm uppercase text-[#a5a5a5] pt-4 pb-2 tracking-[15px]">
             {pageInfo?.role}
           </h2>
-          <h1 className=' z-50 text-2xl lg:text-6xl font-semibold px-10'>
-            <span className=' mr-3'>{text}</span>
-            <Cursor cursorColor='#5C038C' />
+          <h1 className=" z-50 text-2xl lg:text-6xl font-semibold px-10">
+            <span className=" mr-3">{text}</span>
+            <Cursor cursorColor="#5C038C" />
           </h1>
         </div>
-        <div className='pt-5'>
+        <div className="pt-5">
           <Link href={"#about"}>
-            <button className='heroButton'>About</button>
+            <button className="heroButton">About</button>
           </Link>
 
           <Link href={"#projects"}>
-            <button className='heroButton'>Projects</button>
+            <button className="heroButton">Projects</button>
           </Link>
           <Link href={"#skills"}>
-            <button className='heroButton'>Skills</button>
+            <button className="heroButton">Skills</button>
           </Link>
           <Link href={"#contact"}>
-            <button className='heroButton'>Contact</button>
+            <button className="heroButton">Contact</button>
           </Link>
         </div>
       </div>
