@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import ProjectCard from "./ProjectCard";
-import WeatherApp from "../../public/weather.png";
+
 import Image from "next/image";
 import { Project } from "../../typings";
 import { urlFor } from "../../sanity.config";
@@ -11,7 +10,6 @@ type Props = {
 };
 
 function Projects({ projects }: Props) {
-  console.log(projects);
   return (
     <motion.div
       initial={{ opacity: 0 }}

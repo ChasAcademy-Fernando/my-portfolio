@@ -12,6 +12,7 @@ import { fetchPageInfo } from "../../utils/fetchPageInfo";
 import { fetchSkills } from "../../utils/fetchSkills";
 import { fetchSocials } from "../../utils/fetchSocials";
 import { fetchProjects } from "../../utils/fetchProjects";
+
 const inter = Inter({ subsets: ["latin"] });
 
 type Props = {
@@ -50,8 +51,8 @@ export default function Home({ pageInfo, socials, projects, skills }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
+export const getStaticProps: GetStaticProps = async () => {
+  const pageInfo = await fetchPageInfo();
   const skills: Technology[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
   const socials: Social[] = await fetchSocials();

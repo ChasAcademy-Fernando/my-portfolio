@@ -2,9 +2,9 @@ import React from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
-import cvPicture from "../../public/cv-bild(1).jpg";
+
 import Link from "next/link";
-import { type } from "os";
+
 import { PageInfo } from "../../typings";
 import { urlFor } from "../../sanity.config";
 
