@@ -34,8 +34,12 @@ function Projects({ projects }: Props) {
                 height={500}
                 className=" h-40 ease-in transition duration-300 md:h-full object-contain"
               />
+
               <div className=" space-y-10 px-0 md:px-10 max-w-6xl">
-                <h4 className="text-center  text-2xl md:text-4xl font-semibold">
+                <h4
+                  onClick={() => window.open(project?.linkToBuild)}
+                  className="text-center  text-2xl md:text-4xl font-semibold cursor-pointer"
+                >
                   <span className=" underline decoration-orange-400">
                     Project:
                   </span>{" "}
